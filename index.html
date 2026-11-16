@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Portfolio Daniël Garcia Hooreman</title>
+<meta name="description" content="Portfolio Fanbase business developer, Business Development 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --band:#F3F4F6; --surface:#FFFFFF; --ink:#1B202B; --muted:#5B6474; --line:#E2E5EA;
+  --accent:#C2410C; --accent-soft:#FBE9E0; --on-accent:#FFFFFF;
+  --ok:#1B7A4B; --ok-soft:#E3F3EA; --wait:#8A5A00; --wait-soft:#FAEFD6;
+  --shadow:0 1px 2px rgba(20,25,35,.05), 0 10px 28px rgba(20,25,35,.06);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#11141A; --band:#161A22; --surface:#1B202A; --ink:#EDEFF3; --muted:#9BA4B4; --line:#2A303C;
+    --accent:#FF8552; --accent-soft:#38211A; --on-accent:#1A0E08;
+    --ok:#62CC95; --ok-soft:#15281F; --wait:#E8B95C; --wait-soft:#2D2413;
+    --shadow:none;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11141A; --band:#161A22; --surface:#1B202A; --ink:#EDEFF3; --muted:#9BA4B4; --line:#2A303C;
+  --accent:#FF8552; --accent-soft:#38211A; --on-accent:#1A0E08;
+  --ok:#62CC95; --ok-soft:#15281F; --wait:#E8B95C; --wait-soft:#2D2413;
+  --shadow:none;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:'Open Sans',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased}
+h1,h2,h3,.brand{font-family:'Bricolage Grotesque','Open Sans',system-ui,sans-serif; text-wrap:balance; margin:0}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+img{max-width:100%; display:block}
+.wrap{max-width:1060px; margin:0 auto; padding-left:max(20px,env(safe-area-inset-left,0px)); padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* Navigatie */
+.topbar{position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--bg) 90%, transparent); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:60px}
+.brand{font-weight:700; font-size:17px; color:var(--ink); text-decoration:none; white-space:nowrap}
+.brand span{color:var(--accent)}
+.topnav{display:flex; gap:2px}
+.topnav a{font-size:14px; font-weight:600; color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px; white-space:nowrap}
+.topnav a b{color:var(--accent); font-weight:700; margin-right:3px}
+.topnav a:hover{color:var(--ink); background:var(--band)}
+.topnav a.active{color:var(--accent); background:var(--accent-soft)}
+
+/* Voorblad */
+.hero{padding:72px 0 0}
+.hero-grid{display:grid; grid-template-columns:1.3fr .7fr; gap:64px; align-items:center}
+.eyebrow{font-size:14px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--accent); margin:0 0 16px}
+.hero h1{font-weight:800; font-size:clamp(42px,6.6vw,78px); line-height:.98; letter-spacing:-.025em; margin-bottom:22px}
+.lede{font-size:18px; color:var(--muted); max-width:54ch; margin-bottom:28px}
+.actions{display:flex; gap:10px; flex-wrap:wrap}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:11px 18px; border-radius:10px; font-weight:600; font-size:15px; text-decoration:none; border:1px solid transparent; cursor:pointer; font-family:inherit}
+.btn.primary{background:var(--accent); color:var(--on-accent)}
+.btn.ghost{border-color:var(--line); color:var(--ink); background:var(--surface)}
+.btn.ghost:hover{border-color:var(--ink)}
+.portrait{margin:0}
+.portrait .frame{position:relative}
+.portrait .frame::before{content:""; position:absolute; inset:20px -16px -16px 20px; background:var(--accent-soft); border-radius:20px}
+.portrait img{position:relative; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:20px}
+.portrait figcaption{font-size:14px; color:var(--muted); margin-top:28px; line-height:1.5}
+.hero-meta{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:64px 0 0; padding:24px 0; border-top:1px solid var(--line)}
+.hero-meta dd{margin:4px 0 0; font-weight:600; font-size:15px}
+.label{font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.empty{color:var(--muted); font-style:italic; font-weight:400}
+
+/* Inhoud */
+.toc{background:var(--band); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:28px 0}
+.toc-row{display:grid; grid-template-columns:150px 1fr; gap:24px; align-items:start}
+.toc h2{font-size:17px; font-weight:700; padding-top:2px}
+.toc ol{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:14px 24px}
+.toc li{font-size:14px; color:var(--muted); line-height:1.45}
+.toc li a{display:block; font-weight:600; font-size:15.5px; color:var(--ink); text-decoration:none; margin-bottom:2px}
+.toc li a b{color:var(--accent); margin-right:4px}
+.toc li a:hover{color:var(--accent)}
+
+/* Hoofdstukken */
+section.block{padding:84px 0; scroll-margin-top:60px}
+section.block.alt{background:var(--band); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.head{max-width:720px; margin-bottom:36px}
+.head h2{font-weight:800; font-size:clamp(28px,3.4vw,36px); line-height:1.1; letter-spacing:-.02em; margin-bottom:14px}
+.head p:not(.eyebrow){color:var(--muted); font-size:17px; margin:0}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:26px 28px; box-shadow:var(--shadow)}
+.card h3{font-size:22px; font-weight:700; line-height:1.2}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{display:inline-flex; align-items:center; font-size:14px; font-weight:600; line-height:1.3; padding:3px 10px; border-radius:999px; background:var(--band); border:1px solid var(--line); color:var(--ink); text-decoration:none; white-space:nowrap}
+.chip.skill{background:var(--accent-soft); border-color:transparent; color:var(--accent)}
+.chip.lu{background:var(--ink); border-color:var(--ink); color:var(--bg)}
+.chip.ok{background:var(--ok-soft); border-color:transparent; color:var(--ok)}
+.chip.wait{background:var(--wait-soft); border-color:transparent; color:var(--wait)}
+a.chip:hover{filter:brightness(.96)}
+.sub{font-size:24px; font-weight:700; margin:56px 0 8px}
+.sub:first-of-type{margin-top:0}
+.sub + p{color:var(--muted); max-width:720px; margin-bottom:22px}
+.note{font-size:14px; color:var(--muted); margin:18px 0 0; max-width:760px}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+.rows{margin:0}
+.rows > div{display:grid; grid-template-columns:200px 1fr; gap:6px 24px; padding:13px 0; border-top:1px solid var(--line)}
+.rows dd{margin:0; font-size:15.5px}
+.rows dt{padding-top:3px}
+.rows dd .chips{margin-bottom:8px}
+.rows dd .chips:last-child{margin-bottom:0}
+
+/* Wie ben ik */
+.about{display:grid; grid-template-columns:1.25fr .75fr; gap:40px; align-items:start}
+.about .story p{font-size:17px}
+.about .story p:first-child{font-size:20px; line-height:1.5; font-weight:500}
+.facts{margin:0}
+.facts > div{padding:12px 0; border-top:1px solid var(--line)}
+.facts > div:first-child{border-top:none; padding-top:0}
+.facts dd{margin:3px 0 0; font-size:15px; line-height:1.5}
+.gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:48px}
+.gallery figure{margin:0}
+.gallery img{width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:14px; cursor:zoom-in}
+.gallery figcaption{font-size:14px; color:var(--muted); line-height:1.5; margin-top:10px}
+.gallery figcaption b{display:block; color:var(--ink); font-weight:600}
+.aside-note{margin-top:28px; padding:20px 24px; border-left:3px solid var(--accent); background:var(--band); border-radius:0 12px 12px 0; font-size:16px; max-width:780px}
+
+/* Leerdoelen */
+.goal{margin-bottom:28px}
+.goal:last-child{margin-bottom:0}
+.goal-top{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:10px}
+.goal-sum{font-size:18px; line-height:1.5; font-weight:500; max-width:70ch; margin-bottom:22px}
+.progress{margin:10px 0; padding:22px 24px; background:var(--band); border-radius:12px}
+.progress-top{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:12px}
+.progress h4{margin:0; font-size:16px; font-weight:700; font-family:inherit}
+.table-wrap{overflow-x:auto}
+table{width:100%; border-collapse:collapse; font-size:15px}
+th{text-align:left; font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); padding:8px 12px 8px 0}
+td{padding:10px 12px 10px 0; border-top:1px solid var(--line); vertical-align:top}
+.routes{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.route{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 18px}
+.route h5{margin:0 0 10px; font-size:16px; font-weight:700; font-family:inherit}
+.route dl{margin:0; font-size:15px}
+.route dt{margin-top:10px}
+.route dd{margin:2px 0 0; line-height:1.5}
+
+/* Leeruitkomsten */
+.lu-lead{font-size:20px; line-height:1.5; font-weight:500; max-width:760px; margin-bottom:36px}
+.balk{margin-bottom:22px; scroll-margin-top:76px}
+.balk-top{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px}
+.balk-text{font-size:18px; line-height:1.5; font-weight:600; max-width:78ch; margin-bottom:16px}
+.proofs{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:8px; padding-top:20px; border-top:1px solid var(--line)}
+.proofs figure{margin:0}
+.thumb{position:relative; display:block; width:100%; padding:0; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--band); cursor:zoom-in}
+.thumb img{width:100%; height:210px; object-fit:cover; object-position:top}
+.proofs figcaption{font-size:14px; color:var(--muted); margin-top:8px; line-height:1.5}
+.proofs figcaption b{color:var(--ink)}
+.deep ol{margin:14px 0 0; padding-left:20px; color:var(--muted); font-size:15px}
+.deep li{margin-bottom:6px}
+
+/* CE-skills */
+.skill{display:flex; flex-direction:column; gap:14px; scroll-margin-top:76px}
+.skill .say{font-size:16px; font-weight:600; margin:4px 0 0}
+.skill .now{font-size:15.5px; margin:0}
+details{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:10px 0}
+summary{cursor:pointer; font-size:14px; font-weight:600; color:var(--muted)}
+summary:hover{color:var(--ink)}
+details p{font-size:15px; color:var(--muted); margin:10px 0 4px}
+details p b{color:var(--ink)}
+.skill .label{display:block; margin-bottom:6px}
+.skill .rows > div{grid-template-columns:110px 1fr; padding:10px 0}
+.skill .rows > div:first-child{border-top:none; padding-top:0}
+.skill .rows .label{margin:0}
+.matrix{min-width:680px}
+.matrix th,.matrix td{padding:12px 14px; text-align:center}
+.matrix th:first-child,.matrix td:first-child{text-align:left; padding-left:0; min-width:200px}
+.matrix td:first-child b{display:block; font-size:15px}
+.matrix td:first-child span{font-size:14px; color:var(--muted)}
+.matrix .none{color:var(--muted)}
+.swipe{display:none; font-size:14px; color:var(--muted); margin:0 0 8px}
+
+/* Terugblik en conclusie */
+.wsn{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+.wsn h3{margin-bottom:6px}
+.wsn .q{font-size:15px; color:var(--muted); margin-bottom:14px}
+.guide-list{margin:0 0 16px; padding-left:20px; color:var(--muted); font-size:15px}
+.guide-list li{margin-bottom:4px}
+
+/* Bijlagen */
+.attach{display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px}
+.attach .card{display:flex; flex-direction:column; gap:12px}
+.attach .thumb img{height:230px}
+.pages{display:grid; grid-template-columns:repeat(4,1fr); gap:8px}
+.pages img{border:1px solid var(--line); border-radius:6px; cursor:zoom-in; background:#fff}
+.logbook{min-width:860px}
+.logbook td{font-size:15px}
+
+footer{padding:40px 0 56px; font-size:14px; color:var(--muted)}
+footer .wrap{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+footer b{color:var(--ink); font-family:'Bricolage Grotesque','Open Sans',sans-serif; font-size:16px}
+
+/* Vergroten */
+.lightbox{position:fixed; inset:0; z-index:50; background:rgba(10,12,16,.93); overflow:auto; padding:56px 16px 32px; display:none; cursor:zoom-out}
+.lightbox.open{display:block}
+.lightbox img{margin:0 auto; max-width:min(100%,1000px); border-radius:8px; background:#fff}
+.lightbox button{position:fixed; top:12px; right:14px; background:#fff; color:#111; border:none; border-radius:999px; font-size:14px; font-weight:600; padding:8px 14px; cursor:pointer; font-family:inherit}
+
+@media (max-width:980px){
+  .topbar .wrap{flex-direction:column; align-items:stretch; gap:0; padding-top:10px}
+  .topnav{overflow-x:auto; margin:4px -8px 0; padding-bottom:8px; scrollbar-width:none}
+  .topnav::-webkit-scrollbar{display:none}
+  section.block{scroll-margin-top:96px}
+  .balk,.skill{scroll-margin-top:108px}
+}
+@media (max-width:860px){
+  .hero{padding-top:44px}
+  .hero-grid,.about,.grid2{grid-template-columns:1fr; gap:32px}
+  .portrait{max-width:320px; margin-right:16px}
+  .hero-meta{grid-template-columns:1fr 1fr; gap:16px; margin-top:52px}
+  .toc-row{grid-template-columns:1fr; gap:12px}
+  .toc ol{grid-template-columns:1fr 1fr}
+  section.block{padding:60px 0}
+  .gallery,.routes,.wsn,.attach{grid-template-columns:1fr}
+  .gallery img{aspect-ratio:4/3}
+  .rows > div,.skill .rows > div{grid-template-columns:1fr}
+  .proofs{grid-template-columns:1fr 1fr}
+  .card{padding:22px 20px}
+  .swipe{display:block}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Daniël Garcia Hooreman<span>.</span></a>
+    <nav class="topnav" id="topnav">
+      <a href="#wie">Wie ben ik</a>
+      <a href="#leerdoelen"><b>1</b>Leerdoelen</a>
+      <a href="#leeruitkomsten"><b>2</b>Leeruitkomsten</a>
+      <a href="#skills"><b>3</b>CE-skills</a>
+      <a href="#terugblik"><b>4</b>Terugblik</a>
+      <a href="#conclusie"><b>5</b>Conclusie</a>
+      <a href="#bijlagen"><b>6</b>Bijlagen</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Portfolio Fanbase business developer</p>
+        <h1>Daniël Garcia Hooreman</h1>
+        <p class="lede">Student Commerciële Economie aan de HvA. Dit blok werk ik als Fanbase business developer voor opdrachtgever Hockey5s. Dit portfolio laat zien welke leerdoelen ik stel, welke leeruitkomsten ik aantoon en hoe ik daarbij de CE-skills inzet.</p>
+        <div class="actions">
+          <a class="btn primary" href="#leeruitkomsten">Naar de leeruitkomsten</a>
+          <a class="btn ghost" href="#wie">Wie ben ik</a>
+        </div>
+      </div>
+      <figure class="portrait">
+        <div class="frame"><img src="img/portret.jpg" alt="Daniël, lachend, met een glas in zijn hand"></div>
+        <figcaption>Deze foto koos ik omdat hij in Antwerpen is gemaakt, toen ik daar met vrienden was om vrienden te ontmoeten. Ik heb graag internationale vrienden en heb er inmiddels een aantal.</figcaption>
+      </figure>
+    </div>
+    <dl class="hero-meta">
+      <div><dt class="label">Klas / leergemeenschap</dt><dd class="empty">Nog in te vullen</dd></div>
+      <div><dt class="label">Docent</dt><dd class="empty">Nog in te vullen</dd></div>
+      <div><dt class="label">Challenge</dt><dd>Business Development 2, niveau 2</dd></div>
+      <div><dt class="label">Datum</dt><dd>14 november 2026</dd></div>
+    </dl>
+  </div>
+</div>
+
+<div class="toc">
+  <div class="wrap toc-row">
+    <h2>Inhoud</h2>
+    <ol>
+      <li><a href="#leerdoelen"><b>1</b>Mijn leerdoelen</a>CE-skilldoel en persoonlijk leerdoel.</li>
+      <li><a href="#leeruitkomsten"><b>2</b>Leeruitkomsten en bewijs</a>Overzicht per leeruitkomst en twee verdiepingen.</li>
+      <li><a href="#skills"><b>3</b>CE-skills van de challenge</a>Per skill: opdracht, gedrag, effect en bewijs.</li>
+      <li><a href="#terugblik"><b>4</b>Betekenisvolle terugblik</a>What, so what, now what.</li>
+      <li><a href="#conclusie"><b>5</b>Conclusie</a>Beroepsrol en richting niveau 3.</li>
+      <li><a href="#bijlagen"><b>6</b>Bijlagen</a>Extra bewijs en feedbacklogboek.</li>
+    </ol>
+  </div>
+</div>
+
+<section class="block" id="wie">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Wie ben ik</p>
+      <h2>Vrijheid als doel, ondernemen als route.</h2>
+    </div>
+    <div class="about">
+      <div class="story">
+        <p>Ik ben Daniël, student Commerciële Economie aan de HvA, met de Nederlandse en de Spaanse nationaliteit. Wat mij drijft is vrijheid: zelf bepalen waar en wanneer ik ben, met genoeg energie om daar ook van te genieten. Ondernemerschap zie ik als mijn route daarnaartoe.</p>
+        <p>Als fan ben ik geen klassieke clubfan. Ik sport vooral zelf, volg powerlifting en bodybuilding via social media en haak bij voetbal aan bij grote toernooien, met twee elftallen: Nederland en Spanje.</p>
+        <p>Mijn ondernemersinteresse ligt bij mode. Ik denk al langer na over een eigen kledingmerk of een onderneming in fashion. Daarnaast ben ik veel bezig met krachttraining en voeding, lees ik over filosofie en game ik op de PS5.</p>
+        <p>Na dit blok wil ik mijn minor koppelen aan mijn plan als ondernemer, en ik hoop stage te lopen bij een bedrijf waar ik naar opkijk. Daar werk ik dit blok al naartoe met mijn persoonlijk leerdoel.</p>
+      </div>
+      <div class="card">
+        <dl class="facts">
+          <div><dt class="label">Familie</dt><dd>Een zus van 23.</dd></div>
+          <div><dt class="label">Levensbeschouwing</dt><dd>Niet gelovig, wel geïnteresseerd in filosofie. Daar lees ik over.</dd></div>
+          <div><dt class="label">Beste werkmoment</dt><dd>Vooral 's avonds, en soms 's ochtends op school.</dd></div>
+          <div><dt class="label">Commerciële ervaring</dt><dd>B2B-salesgesprekken (MoodBrew), een evenement voor Lucas Bols en advies aan T-Line Sportcentrum.</dd></div>
+          <div><dt class="label">Bijbaan</dt><dd>Verhuisbedrijf: fysiek werk dat goed aansluit bij het trainen.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <figure>
+        <img src="img/fashionweek.jpg" alt="Runway show in een zaal met kroonluchters" data-zoom>
+        <figcaption><b>Fashion Week, Parijs</b>Vorig blok was ik bij een runway show. Dat gaf me een goede indruk van de meer high-end merken.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/momu-1.jpg" alt="Tentoonstelling met paspoppen in het ModeMuseum" data-zoom>
+        <figcaption><b>ModeMuseum, Antwerpen</b>Vooral het gedeelte over de Antwerp Six vond ik interessant.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/momu-2.jpg" alt="Donkere zaal met zwarte ontwerpen in het ModeMuseum" data-zoom>
+        <figcaption><b>ModeMuseum, Antwerpen</b>Een tweede zaal uit hetzelfde bezoek.</figcaption>
+      </figure>
+    </div>
+    <p class="aside-note">In Antwerpen ging ik ook langs bij de vrouw met haar eigen kledingwinkel op de Steenhouwersvest. We dronken er iets en praatten met haar. Een vriend van mij, die zijn eigen kledingmerk is gestart, heeft contact met haar gehad. Hoe ik haar heb ontmoet, staat in mijn vorige portfolio.</p>
+  </div>
+</section>
+
+<section class="block alt" id="leerdoelen">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">1 · Mijn leerdoelen</p>
+      <h2>Twee doelen die ik makkelijk kan bijhouden.</h2>
+      <p>Een CE-skilldoel uit de skillkaart en een persoonlijk leerdoel voor dit semester. Bewijs en evaluatie vul ik gedurende het blok aan.</p>
+    </div>
+
+    <div class="card goal">
+      <div class="goal-top">
+        <div><span class="label">1.1 · CE-skilldoel</span><h3>Kritisch denken</h3></div>
+        <span class="chip skill">Zelfsturing</span>
+      </div>
+      <p class="goal-sum">Na elk overleg noteer ik één tegenargument dat ik zelf eerst over het hoofd zag. Voor het einde van sprint 2 heb ik dat minimaal vijf keer gedaan.</p>
+      <dl class="rows">
+        <div><dt class="label">Focus uit de skillkaart</dt><dd>Zelfsturing: "Je reflecteert regelmatig op je kennis en vaardigheden."</dd></div>
+        <div><dt class="label">Welk doel en waarom</dt><dd>Mijn valkuil is dat ik soms te lang vasthoud aan mijn eigen mening en in de beginfase al op mijn eigen idee stuur. Dit logje is klein genoeg om vol te houden en raakt precies die valkuil: het dwingt me elke keer even buiten mijn eigen standpunt te kijken voordat ik verder ga.</dd></div>
+        <div><dt class="label">Waar sta ik nu</dt><dd>Ik herken een tegenargument wel als ik erop let, maar doe dat nog niet structureel na ieder overleg. Ik reflecteer veel in mijn portfolio, maar minder tussen het blok door.</dd></div>
+        <div><dt class="label">Wat wil ik straks beter kunnen</dt><dd>Voor het einde van sprint 2 noteer ik na elk overleg of analysemoment één tegenargument dat ik zelf in eerste instantie over het hoofd zag, in een doorlopend logje. Dat is zichtbaar bij minimaal vijf momenten.</dd></div>
+        <div><dt class="label">Kennis en methode</dt><dd>Eén vaste vraag die ik mezelf na ieder overleg stel: "wat zou iemand zeggen die het hier niet mee eens is?" Dat schrijf ik meteen op, in plaats van het achteraf te reconstrueren.</dd></div>
+        <div><dt class="label">Bronnen</dt><dd class="empty">Nog toe te voegen.</dd></div>
+        <div><dt class="label">Wat ik uitprobeer</dt><dd>Ik houd het logje bij op één plek, zodat het weinig tijd kost en ik het makkelijk volhoud. Halverwege sprint 2 check ik zelf of ik dit echt bij elk overleg heb gedaan en stuur ik bij als het inzakt.</dd></div>
+      </dl>
+      <div class="progress">
+        <div class="progress-top"><h4>Bewijs: mijn logje</h4><span class="chip wait">0 van 5 momenten</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th style="width:36px">#</th><th style="width:120px">Datum</th><th style="width:30%">Overleg of moment</th><th>Tegenargument dat ik eerst miste</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="empty" colspan="3">Nog in te vullen</td></tr>
+              <tr><td>2</td><td class="empty" colspan="3">Nog in te vullen</td></tr>
+              <tr><td>3</td><td class="empty" colspan="3">Nog in te vullen</td></tr>
+              <tr><td>4</td><td class="empty" colspan="3">Nog in te vullen</td></tr>
+              <tr><td>5</td><td class="empty" colspan="3">Nog in te vullen</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <dl class="rows">
+        <div><dt class="label">Evaluatie einde blok</dt><dd class="empty">Wat heb ik gedaan, wat ging goed, wat was lastig, wat heb ik bereikt en wat neem ik mee?</dd></div>
+      </dl>
+    </div>
+
+    <div class="card goal">
+      <div class="goal-top">
+        <div><span class="label">1.2 · Persoonlijk leerdoel</span><h3>Eén ondernemersrichting kiezen</h3></div>
+        <span class="chip skill">Zelfsturing</span>
+      </div>
+      <p class="goal-sum">Voor het einde van dit blok breng ik drie ondernemersrichtingen terug tot één, met per richting een concrete verdiepingsstap.</p>
+      <dl class="rows">
+        <div><dt class="label">Welk doel en waarom</dt><dd>Greg gaf aan dat ik nog geen scherp beeld heb van mijn richting. Mijn einddoel is vrijheid, met ondernemerschap als pad daarnaartoe. Zonder een getoetste richting blijft dat doel vaag, en dit blok geeft me de kans om voor het eerst echt een stap te zetten in plaats van alleen te verzamelen.</dd></div>
+        <div><dt class="label">Waar sta ik nu</dt><dd>Ik heb drie richtingen die me aanspreken (mode en kleding, sport en voeding, commerciële diensten voor kleine organisaties), maar nog geen van de drie echt getest met een concrete stap.</dd></div>
+        <div><dt class="label">Waar ik al aan werkte</dt><dd>Voor mode: vorig blok was ik bij Fashion Week in Parijs, en laatst bezocht ik in Antwerpen het ModeMuseum en sprak ik met de eigenaar van een kledingwinkel op de Steenhouwersvest.</dd></div>
+        <div><dt class="label">Wat wil ik straks beter kunnen</dt><dd>Voor het einde van dit blok heb ik voor elke richting een concrete verdiepingsstap gezet en ze teruggebracht tot één richting, met onderbouwing.</dd></div>
+        <div><dt class="label">Kennis en methode</dt><dd>Ik gebruik mijn eigen ervaring: B2B-salesgesprekken, het organiseren van events en mijn advieswerk bij T-Line en Sportcentrum De Wadden. Per richting verdiep ik me gericht: voor mode door te kijken wat nodig is om klein te beginnen, voor sport en voeding door te testen wat ik zelf al weet werkt, voor commerciële diensten door terug te kijken op wat me aansprak in eerdere opdrachten.</dd></div>
+        <div><dt class="label">Bronnen</dt><dd class="empty">Nog toe te voegen.</dd></div>
+        <div><dt class="label">Wat ik uitprobeer</dt><dd>Ik plan zelf per richting een haalbare verdiepingsstap in, verwerk de uitkomst in een voor/tegen-overzicht en leg de keuze en onderbouwing vast in dit portfolio, inclusief wat de doorslag gaf.</dd></div>
+      </dl>
+      <div class="progress">
+        <div class="progress-top"><h4>Bewijs: drie richtingen</h4><span class="chip wait">Keuze nog open</span></div>
+        <div class="routes">
+          <div class="route">
+            <h5>Mode en kleding</h5>
+            <dl>
+              <dt class="label">Verdiepingsstap</dt><dd class="empty">Nog in te vullen</dd>
+              <dt class="label">Voor</dt><dd class="empty">Nog in te vullen</dd>
+              <dt class="label">Tegen</dt><dd class="empty">Nog in te vullen</dd>
+            </dl>
+          </div>
+          <div class="route">
+            <h5>Sport en voeding</h5>
+            <dl>
+              <dt class="label">Verdiepingsstap</dt><dd class="empty">Nog in te vullen</dd>
+              <dt class="label">Voor</dt><dd class="empty">Nog in te vullen</dd>
+              <dt class="label">Tegen</dt><dd class="empty">Nog in te vullen</dd>
+            </dl>
+          </div>
+          <div class="route">
+            <h5>Commerciële diensten</h5>
+            <dl>
+              <dt class="label">Verdiepingsstap</dt><dd class="empty">Nog in te vullen</dd>
+              <dt class="label">Voor</dt><dd class="empty">Nog in te vullen</dd>
+              <dt class="label">Tegen</dt><dd class="empty">Nog in te vullen</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <dl class="rows">
+        <div><dt class="label">Evaluatie einde blok</dt><dd class="empty">Wat heb ik gedaan, wat ging goed, wat was lastig, wat heb ik bereikt en wat neem ik mee?</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="leeruitkomsten">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">2 · Leeruitkomsten en bewijs</p>
+      <h2>Wat ik aantoon, met welk bewijs.</h2>
+    </div>
+    <p class="lu-lead">Aan het einde van deze challenge toon ik aan dat ik begeleid een vernieuwend businessidee met bijbehorend verdienmodel kan ontwikkelen. Dat bestaat uit vier leeruitkomsten.</p>
+
+    <h3 class="sub">2.1 Overzicht van alle leeruitkomsten</h3>
+    <p>Per leeruitkomst één invulbalk, met het bewijs er direct onder. Er is nog niets beoordeeld: de status is wat ik heb ingeleverd.</p>
+
+    <div class="card balk" id="lu1">
+      <div class="balk-top"><span class="chip lu">LU 1</span><div class="chips"><span class="chip ok">Eerste aanzet ingeleverd</span><span class="chip wait">Nog niet beoordeeld</span></div></div>
+      <p class="balk-text">Op basis van een gegeven business development vraagstuk een vernieuwend businessidee ontwikkelen met bijbehorend verdienmodel, waarbij rekening wordt gehouden met technologische innovaties, meervoudige waardecreatie en ethisch verantwoord handelen.</p>
+      <dl class="rows">
+        <div><dt class="label">Opdracht / touchpoint</dt><dd>Wie ben jij als fan? (infographic met onderbouwing)</dd></div>
+        <div><dt class="label">Feedback</dt><dd class="empty">Nog niet ontvangen.</dd></div>
+        <div><dt class="label">Aangepast / geleerd</dt><dd>Eerst de behoefte van de fan, dan pas de technologie. Een businessidee met verdienmodel heb ik nog niet: dit is een aanzet.</dd></div>
+        <div><dt class="label">Mijn aandeel</dt><dd>Individuele opdracht.</dd></div>
+        <div><dt class="label">Ingezette CE-skill</dt><dd><div class="chips"><a class="chip skill" href="#skill-creativiteit">Creativiteit</a></div>In mijn advies benoem ik marketingtechnologie (targeting, AI-personalisatie, wallet-tickets) en meervoudige waardecreatie voor fan, Hockey5s en maatschappij.</dd></div>
+      </dl>
+      <div class="proofs">
+        <figure><button class="thumb" type="button" data-zoom-src="img/onderbouwing-3.jpg" aria-label="Onderbouwing pagina 3 vergroten"><img src="img/onderbouwing-3.jpg" alt="Onderbouwing pagina 3"></button><figcaption><b>B2, p. 3</b> · Rol van marketingtechnologie en emerging tech in mijn advies.</figcaption></figure>
+        <figure><button class="thumb" type="button" data-zoom-src="img/onderbouwing-4.jpg" aria-label="Onderbouwing pagina 4 vergroten"><img src="img/onderbouwing-4.jpg" alt="Onderbouwing pagina 4"></button><figcaption><b>B2, p. 4</b> · Koppeling met meervoudige waardecreatie.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="card balk" id="lu2">
+      <div class="balk-top"><span class="chip lu">LU 2</span><span class="chip">Nog geen bewijs</span></div>
+      <p class="balk-text">Op basis van kwalitatief onderzoek relevante inzichten vertalen naar businesskansen voor een nieuw of verbeterd businessconcept.</p>
+      <dl class="rows">
+        <div><dt class="label">Opdracht / touchpoint</dt><dd class="empty">Nog in te vullen.</dd></div>
+        <div><dt class="label">Feedback</dt><dd class="empty">Nog in te vullen.</dd></div>
+        <div><dt class="label">Aangepast / geleerd</dt><dd class="empty">Nog in te vullen.</dd></div>
+        <div><dt class="label">Mijn aandeel</dt><dd class="empty">Nog in te vullen.</dd></div>
+        <div><dt class="label">Ingezette CE-skill</dt><dd class="empty">Nog in te vullen.</dd></div>
+      </dl>
+    </div>
+
+    <div class="card balk" id="lu3">
+      <div class="balk-top"><span class="chip lu">LU 3</span><div class="chips"><span class="chip ok">Ingeleverd</span><span class="chip wait">Nog niet beoordeeld</span></div></div>
+      <p class="balk-text">Design Thinking toepassen om daarmee de kwaliteit van de oplossing te verhogen.</p>
+      <dl class="rows">
+        <div><dt class="label">Opdracht / touchpoint</dt><dd>Wie ben jij als fan? (infographic met onderbouwing)</dd></div>
+        <div><dt class="label">Feedback</dt><dd class="empty">Nog niet ontvangen.</dd></div>
+        <div><dt class="label">Aangepast / geleerd</dt><dd>Ik werkte vanuit de empathise-fase: eerst mezelf begrijpen als fan, daarna de fans van Hockey5s. Volgens de kennisbite zijn pijnpunten juist de bron van innovatie; bij mij was dat de pasvorm bij online kopen.</dd></div>
+        <div><dt class="label">Mijn aandeel</dt><dd>Individuele opdracht.</dd></div>
+        <div><dt class="label">Ingezette CE-skill</dt><dd><div class="chips"><a class="chip skill" href="#skill-creativiteit">Creativiteit</a></div>Ik gebruikte mijn eigen klantreis als startpunt om tot ideeën voor de fanreis te komen.</dd></div>
+      </dl>
+      <div class="proofs">
+        <figure><button class="thumb" type="button" data-zoom-src="img/onderbouwing-1.jpg" aria-label="Onderbouwing pagina 1 vergroten"><img src="img/onderbouwing-1.jpg" alt="Onderbouwing pagina 1"></button><figcaption><b>B2, p. 1</b> · Doel en opzet: de empathise-fase van Design Thinking.</figcaption></figure>
+        <figure><button class="thumb" type="button" data-zoom-src="img/onderbouwing-3.jpg" aria-label="Onderbouwing pagina 3 vergroten"><img src="img/onderbouwing-3.jpg" alt="Onderbouwing pagina 3"></button><figcaption><b>B2, p. 3</b> · Touchpoints en pijnpunten in mijn klantreis.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="card balk" id="lu4">
+      <div class="balk-top"><span class="chip lu">LU 4</span><div class="chips"><span class="chip ok">Ingeleverd</span><span class="chip wait">Nog niet beoordeeld</span></div></div>
+      <p class="balk-text">Fanbase Business Developer: het identificeren van specifieke fanwaarden van sportdoelgroepen om tot een duurzaam verdienmodel (in de sport) te komen.</p>
+      <dl class="rows">
+        <div><dt class="label">Opdracht / touchpoint</dt><dd>Wie ben jij als fan? (infographic met onderbouwing)</dd></div>
+        <div><dt class="label">Feedback</dt><dd class="empty">Nog niet ontvangen.</dd></div>
+        <div><dt class="label">Aangepast / geleerd</dt><dd>Ik ben geen klassieke clubfan. Ik haak aan via social media en bij grote momenten zoals het WK, en ik koop pas als het me makkelijk wordt gemaakt. Gemak weegt voor mij zwaarder dan beleving. Dat vertaalde ik naar mijn advies aan Hockey5s: eerst een soepele (smooth) basis, daarbovenop sticky momenten die fans laten terugkomen.</dd></div>
+        <div><dt class="label">Mijn aandeel</dt><dd>Individuele opdracht.</dd></div>
+        <div><dt class="label">Ingezette CE-skills</dt><dd><div class="chips"><a class="chip skill" href="#skill-creativiteit">Creativiteit</a><a class="chip skill" href="#skill-communicatie">Communicatie</a></div>Ik gebruikte mijn eigen fanwaarden (identiteit, gemak, grote momenten) als inspiratie voor vier stappen in de fanreis, en bracht die over in één infographic.</dd></div>
+      </dl>
+      <div class="proofs">
+        <figure><button class="thumb" type="button" data-zoom-src="img/infographic.jpg" aria-label="Infographic vergroten"><img src="img/infographic.jpg" alt="Infographic Wie ben ik als fan?"></button><figcaption><b>B1</b> · De infographic zoals ik hem heb ingeleverd.</figcaption></figure>
+        <figure><button class="thumb" type="button" data-zoom-src="img/onderbouwing-2.jpg" aria-label="Onderbouwing pagina 2 vergroten"><img src="img/onderbouwing-2.jpg" alt="Onderbouwing pagina 2"></button><figcaption><b>B2, p. 2</b> · Fantypes, emotionele drivers en mijn klantreis in vijf fases.</figcaption></figure>
+      </div>
+    </div>
+
+    <h3 class="sub">2.2 Twee leeruitkomsten verdiepend uitgewerkt</h3>
+    <p>Voor het tussentijdse moment werk ik er minimaal één uit, voor de eindversie twee. Onder de invulbalk beantwoord ik deze vragen.</p>
+    <div class="grid2">
+      <div class="card deep">
+        <div class="balk-top"><h3>Verdieping 1</h3><span class="chip">Nog niet uitgewerkt</span></div>
+        <p class="empty" style="margin:0">Leeruitkomst nog te kiezen.</p>
+        <ol>
+          <li>Wat kwam ik tegen? Wat was lastig, belangrijk of opvallend?</li>
+          <li>Welke professionele keuzes heb ik gemaakt?</li>
+          <li>Hoe heeft feedback mijn werk verbeterd?</li>
+          <li>Wat heb ik hiervan geleerd?</li>
+          <li>Wat kan ik hierover toelichten in het assessment?</li>
+          <li>Mijn bewijs.</li>
+          <li>Wat is niet zichtbaar in het eindproduct, maar wel belangrijk om te weten?</li>
+        </ol>
+      </div>
+      <div class="card deep">
+        <div class="balk-top"><h3>Verdieping 2</h3><span class="chip">Nog niet uitgewerkt</span></div>
+        <p class="empty" style="margin:0">Leeruitkomst nog te kiezen.</p>
+        <ol>
+          <li>Wat kwam ik tegen? Wat was lastig, belangrijk of opvallend?</li>
+          <li>Welke professionele keuzes heb ik gemaakt?</li>
+          <li>Hoe heeft feedback mijn werk verbeterd?</li>
+          <li>Wat heb ik hiervan geleerd?</li>
+          <li>Wat kan ik hierover toelichten in het assessment?</li>
+          <li>Mijn bewijs.</li>
+          <li>Wat is niet zichtbaar in het eindproduct, maar wel belangrijk om te weten?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="skills">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">3 · CE-skills van de challenge</p>
+      <h2>Waar de CE-skills zichtbaar zijn.</h2>
+      <p>Eerst de samenhang met de leeruitkomsten, daarna elke skill apart: waar ik nu sta, bij welke opdracht ik hem inzette, welk gedrag, welk effect en welk bewijs.</p>
+    </div>
+
+    <h3 class="sub">Samenhang: leeruitkomsten × CE-skills</h3>
+    <p>Welke skill ik inzette voor welke leeruitkomst. De uitleg per koppeling staat in de invulbalk van die leeruitkomst.</p>
+    <div class="card">
+      <p class="swipe">Veeg de tabel opzij voor alle vier de skills.</p>
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr><th></th><th>Creativiteit</th><th>Samenwerken</th><th>Communicatie</th><th>Zelfsturing</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>LU 1</b><span>Businessidee en verdienmodel</span></td><td><a class="chip" href="#lu1">Fan-infographic · aanzet</a></td><td class="none">–</td><td class="none">–</td><td class="none">–</td></tr>
+            <tr><td><b>LU 2</b><span>Onderzoek naar businesskansen</span></td><td class="none">–</td><td class="none">–</td><td class="none">–</td><td class="none">–</td></tr>
+            <tr><td><b>LU 3</b><span>Design Thinking</span></td><td><a class="chip" href="#lu3">Fan-infographic</a></td><td class="none">–</td><td class="none">–</td><td class="none">–</td></tr>
+            <tr><td><b>LU 4</b><span>Fanwaarden en verdienmodel</span></td><td><a class="chip" href="#lu4">Fan-infographic</a></td><td class="none">–</td><td><a class="chip" href="#lu4">Fan-infographic</a></td><td class="none">–</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="note">Samenwerken en Zelfsturing zijn nog niet aan een leeruitkomst gekoppeld. Samenwerken zet ik in bij Jullie Succesroute, Zelfsturing bij mijn leerdoelen.</p>
+
+    <h3 class="sub">Elke skill apart</h3>
+    <p>Wat nog leeg is, vul ik aan bij de volgende opdrachten.</p>
+    <div class="grid2">
+
+      <div class="card skill" id="skill-creativiteit">
+        <div><h3>Creativiteit</h3><p class="say">Ga op zoek naar innovatieve ideeën en (marketingtechnologie) oplossingen.</p></div>
+        <details>
+          <summary>Omschrijving uit de skillkaart</summary>
+          <p>Je hebt inbreng bij inhoudelijke discussies met medestudenten over mogelijke oplossingen. Je maakt keuzes uit enkele creatieve denktechnieken om daarmee tot originele ideeën of oplossingen te komen. Je helpt ook anderen daarbij. Je ontwikkelt nieuwe ideeën voor fanbeleving, loyaliteit of lange-termijnrelaties voor de sportorganisatie. Je experimenteert in voor jou nieuwe situaties. Je probeert verschillende dingen uit om tot vernieuwende oplossingen te komen. Je experimenteert met AI tools.</p>
+          <p><b>Gebruik faninzichten als inspiratie voor vernieuwing.</b></p>
+        </details>
+        <div><span class="label">Waar ik nu sta</span><p class="now">Ik ben niet bang om mezelf in een discussie duidelijk te maken en heb af en toe goede, originele ideeën, maar dat moet ik vaker proberen. Nieuwe ideeën voor fanbeleving, loyaliteit of langetermijnrelaties voor een sportorganisatie ontwikkel ik nog niet, maar ik sta er wel voor open. Ik gebruik en test graag nieuwe dingen en ben al een beetje bezig met AI.</p></div>
+        <dl class="rows">
+          <div><dt class="label">Opdracht</dt><dd><a href="#lu4">Wie ben jij als fan?</a></dd></div>
+          <div><dt class="label">Gedrag</dt><dd>Ik gebruikte mijn eigen fangedrag als inspiratie en vertaalde dat naar vier stappen voor de fanreis van Hockey5s, van een start op social tot digitale tickets en AI-personalisatie.</dd></div>
+          <div><dt class="label">Effect</dt><dd>Een advies dat bij de fan begint in plaats van bij de technologie. Wat de docent ervan vindt, weet ik nog niet.</dd></div>
+          <div><dt class="label">Bewijs</dt><dd><a href="#bijlagen">B1 en B2</a>, bij LU 4, LU 3 en LU 1.</dd></div>
+        </dl>
+      </div>
+
+      <div class="card skill" id="skill-communicatie">
+        <div><h3>Communicatie</h3><p class="say">Breng je informatie overtuigend over.</p></div>
+        <details>
+          <summary>Omschrijving uit de skillkaart</summary>
+          <p>Je brengt ideeën en informatie duidelijk en overtuigend over. Je luistert actief en met een open houding naar anderen, je houdt rekening met de gevoelens en behoeften van anderen. Je maakt stakeholders enthousiast voor jouw fanbase-concept en laat zien hoe dit bijdraagt aan fanbeleving, loyaliteit en waarde voor de sportorganisatie.</p>
+          <p><b>Ga met je stakeholders in gesprek over fanbeleving en waarde.</b></p>
+        </details>
+        <div><span class="label">Waar ik nu sta</span><p class="now">Presenteren vind ik lastig als ik veel tekst heb en die moet repeteren. Het gaat beter als ik iets door en door begrijp en het in mijn eigen woorden kan uitleggen; daar wil ik beter in worden. Ik kan goed luisteren, maar als ik zelf iets te vertellen heb, sta ik vaak te popelen om het te zeggen. Dat wil ik dit blok loslaten. Stakeholders enthousiast maken voor mijn fanbase-concept doe ik nog niet.</p></div>
+        <dl class="rows">
+          <div><dt class="label">Opdracht</dt><dd><a href="#lu4">Wie ben jij als fan?</a></dd></div>
+          <div><dt class="label">Gedrag</dt><dd>Ik bracht mijn inzichten kort en visueel over in één infographic en onderbouwde ze apart met de theorie uit de kennisbites.</dd></div>
+          <div><dt class="label">Effect</dt><dd class="empty">Nog niet bekend: ik wacht op feedback.</dd></div>
+          <div><dt class="label">Bewijs</dt><dd><a href="#bijlagen">B1 en B2</a>, bij LU 4.</dd></div>
+        </dl>
+      </div>
+
+      <div class="card skill" id="skill-samenwerken">
+        <div><h3>Samenwerken</h3><p class="say">Draag bij aan een succesvol samenwerkend team.</p></div>
+        <details>
+          <summary>Omschrijving uit de skillkaart</summary>
+          <p>Je hebt inzicht in jouw rol in je team, en hoe jouw gedrag anderen in je team beïnvloedt. Je staat open voor tips en suggesties van anderen, en laat merken deze serieus te nemen. Je vraagt om hulp en feedback en je geeft hulp en feedback als je teamleden daarom vragen. Je voorkomt conflicten of kunt ze oplossen om een gezamenlijk doel te bereiken. Je legt op proactieve wijze contact met de juiste mensen om je plannen en doelen te kunnen realiseren.</p>
+          <p><b>Maak heldere afspraken met anderen in je team om jullie gemeenschappelijke doelen te halen.</b></p>
+        </details>
+        <div><span class="label">Waar ik nu sta</span><p class="now">Ik heb inmiddels goed zicht op wat ik in een team kan betekenen. Dat verschilt per team, maar mijn taak is vaak structuur brengen. Vorig blok heb ik mijn teamgenoten om feedback gevraagd, met minimaal één verbeterpunt. Daar sta ik dus voor open, maar ik wil er nog beter in worden. Ik kan goed inschatten wanneer een samenwerking uit de hand loopt en wat er dan moet gebeuren. Ik hoop dat dat dit blok niet nodig is.</p></div>
+        <dl class="rows">
+          <div><dt class="label">Opdracht</dt><dd>Jullie Succesroute (kick-off week, mijn deel van een teamopdracht).</dd></div>
+          <div><dt class="label">Gedrag</dt><dd class="empty">Nog in te vullen.</dd></div>
+          <div><dt class="label">Effect</dt><dd class="empty">Nog in te vullen.</dd></div>
+          <div><dt class="label">Bewijs</dt><dd><a href="#bijlagen">B3</a>, ingeleverd en nog niet beoordeeld.</dd></div>
+        </dl>
+      </div>
+
+      <div class="card skill" id="skill-zelfsturing">
+        <div><h3>Zelfsturing</h3><p class="say">Neem actief de regie over je professionele ontwikkeling.</p></div>
+        <details>
+          <summary>Omschrijving uit de skillkaart</summary>
+          <p>Je kent je persoonlijke kwaliteiten, weet welke fanbase- en sportmarketingvraagstukken je aanspreken en welke praktijkervaring je wilt opdoen. Met deze inzichten zet je gerichte stappen om contact te leggen met de praktijk en jezelf voor te bereiden op je stage en minor. Je reflecteert regelmatig op je kennis en vaardigheden, onderzoekt hoe deze aansluiten bij je toekomstige professionele doelen. Je denkt bewust na over hoe je leert. Je zoekt actief naar expertise en de hulp van anderen, en past leerstrategieën toe. Je bouwt een portfolio dat jouw talenten, vaardigheden en ambities weerspiegelt en gebruikt dit als basis voor je volgende carrièrestappen.</p>
+          <p><b>Weet wat jij kunt als fanbase business developer.</b></p>
+        </details>
+        <div><span class="label">Waar ik nu sta</span><p class="now">Ik ken een aantal van mijn kwaliteiten en valkuilen en sta open om nieuwe te ontdekken. Welke fanbase- en sportmarketingvraagstukken me aanspreken en welke praktijkervaring ik wil opdoen, weet ik nog niet goed. Daar wil ik komend blok stappen in zetten, ook richting stage en minor. Ik reflecteer veel op mijn kwaliteiten en twijfel daardoor over mijn richting na school. Ik wil dingen efficiënt maar goed leren, en ik durf om hulp te vragen: als iemand iets beter doet of iets interessants doet, vraag ik ernaar.</p></div>
+        <dl class="rows">
+          <div><dt class="label">Opdracht</dt><dd><a href="#leerdoelen">Mijn leerdoelen</a>: hier werk ik deze skill uit.</dd></div>
+          <div><dt class="label">Gedrag</dt><dd class="empty">Nog in te vullen.</dd></div>
+          <div><dt class="label">Effect</dt><dd class="empty">Nog in te vullen.</dd></div>
+          <div><dt class="label">Bewijs</dt><dd class="empty">Mijn logje en de keuze voor één richting.</dd></div>
+        </dl>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="terugblik">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">4 · Betekenisvolle terugblik</p>
+      <h2>Een moment dat ertoe deed.</h2>
+      <p>Een terugblik op één persoonlijk belangrijk moment uit deze challenge. Die schrijf ik zodra dat moment er is geweest.</p>
+    </div>
+    <div class="wsn">
+      <div class="card"><h3>What</h3><p class="q">Wat is er gebeurd? Wie waren erbij? Wat deed ik?</p><p class="empty" style="margin:0">Nog in te vullen.</p></div>
+      <div class="card"><h3>So what</h3><p class="q">Waarom is dit moment belangrijk? Wat dacht of voelde ik? Wat leerde ik over mezelf of mijn rol?</p><p class="empty" style="margin:0">Nog in te vullen.</p></div>
+      <div class="card"><h3>Now what</h3><p class="q">Wat neem ik mee naar een volgende situatie? Wat wil ik anders doen of verder ontwikkelen?</p><p class="empty" style="margin:0">Nog in te vullen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="conclusie">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">5 · Conclusie</p>
+      <h2>Beroepsrol en richting niveau 3.</h2>
+    </div>
+    <div class="card" style="max-width:780px">
+      <p style="font-size:15px; color:var(--muted)">Eén samenhangende tekst, te schrijven aan het einde van de challenge, over:</p>
+      <ul class="guide-list">
+        <li>wat ik heb geleerd over de beroepsrol Fanbase business developer;</li>
+        <li>waar ik nu sta;</li>
+        <li>wat ik heb gedaan of ontdekt richting niveau 3, stage en minor;</li>
+        <li>welke volgende stap ik meeneem naar een volgende challenge, stage of minor;</li>
+        <li>welke lezing of workshop ik heb gevolgd en wat ik daarvan meeneem.</li>
+      </ul>
+      <p class="empty" style="margin:0">Nog te schrijven.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="bijlagen">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">6 · Bijlagen</p>
+      <h2>Extra bewijs en mijn feedbacklogboek.</h2>
+    </div>
+
+    <h3 class="sub">Bewijs</h3>
+    <p>Klik op een afbeelding om hem groot te bekijken.</p>
+    <div class="attach">
+      <div class="card">
+        <div><span class="label">B1</span><h3>Infographic "Wie ben ik als fan?"</h3></div>
+        <button class="thumb" type="button" data-zoom-src="img/infographic.jpg" aria-label="Infographic vergroten"><img src="img/infographic.jpg" alt="Infographic Wie ben ik als fan?"></button>
+        <p class="note" style="margin:0">Ingeleverd bij het touchpoint Wie ben jij als fan?</p>
+      </div>
+      <div class="card">
+        <div><span class="label">B2</span><h3>Onderbouwing bij de infographic</h3></div>
+        <div class="pages">
+          <img src="img/onderbouwing-1.jpg" alt="Onderbouwing pagina 1" data-zoom>
+          <img src="img/onderbouwing-2.jpg" alt="Onderbouwing pagina 2" data-zoom>
+          <img src="img/onderbouwing-3.jpg" alt="Onderbouwing pagina 3" data-zoom>
+          <img src="img/onderbouwing-4.jpg" alt="Onderbouwing pagina 4" data-zoom>
+        </div>
+        <p class="note" style="margin:0">Vier pagina's: opzet, koppeling met de theorie, inzichten voor Hockey5s en bronnen.</p>
+      </div>
+      <div class="card">
+        <div><span class="label">B3</span><h3>Jullie Succesroute, mijn deel</h3></div>
+        <p style="margin:0; font-size:15.5px">Mijn eigen inbreng voor de succesroute van mijn nieuwe team, ingeleverd in de kick-off week.</p>
+        <p style="margin:0"><a class="btn ghost" href="https://claude.ai/artifact/NQNnYKbuGL8SXH8YKZLHcb" target="_blank" rel="noopener">Open de ingeleverde versie</a></p>
+      </div>
+    </div>
+
+    <h3 class="sub">Feedbacklogboek</h3>
+    <p>Alle feedback die ik deze challenge krijg, met wat ik ermee doe. Ik vul het aan zodra er feedback binnenkomt.</p>
+    <div class="card">
+      <p class="swipe">Veeg de tabel opzij voor alle kolommen.</p>
+      <div class="table-wrap">
+        <table class="logbook">
+          <thead><tr><th style="width:110px">Datum</th><th style="width:110px">Van wie</th><th style="width:150px">Opdracht / moment</th><th>Ontvangen feedback</th><th>Wat doe ik ermee en welk inzicht geeft het?</th><th style="width:90px">Verwerkt?</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Einde vorig blok</td>
+              <td>Greg</td>
+              <td>Eindportfolio vorig blok</td>
+              <td>Het portfolio is lastig te volgen: niet duidelijk welke leeruitkomsten ik onder de knie heb, welke skills ik daarvoor inzette en hoe die zich ontwikkelden. Het feedbacklogboek was nauwelijks gevuld. Vertel meer over wie je bent en wat je toekomstplan is.</td>
+              <td>Dit portfolio volgt de vaste hoofdstukken, met per leeruitkomst het bewijs en de ingezette CE-skill. Bij "Wie ben ik" vertel ik meer over mezelf en mijn toekomstplan. Het logboek houd ik nu vanaf het begin bij.</td>
+              <td>Ja</td>
+            </tr>
+            <tr><td class="empty" colspan="6">Nog geen feedback ontvangen in deze challenge.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Daniël Garcia Hooreman</b><br>Portfolio Fanbase business developer · Business Development 2 · Commerciële Economie, HvA</div>
+    <div>Laatst bijgewerkt: 14 november 2026</div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Vergrote afbeelding">
+  <button type="button">Sluiten</button>
+  <img alt="">
+</div>
+
+<script>
+(function(){
+  // Actieve link in de navigatie
+  var links = Array.prototype.slice.call(document.querySelectorAll('#topnav a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var pos = window.scrollY + 140, idx = -1;
+    sections.forEach(function(s,i){ if(s && s.getBoundingClientRect().top + window.scrollY <= pos) idx = i; });
+    links.forEach(function(a,i){ a.classList.toggle('active', i === idx); });
+  }
+  document.addEventListener('scroll', spy, {passive:true});
+  spy();
+
+  // Afbeeldingen vergroten
+  var box = document.getElementById('lightbox'), big = box.querySelector('img');
+  function open(src, alt){ big.src = src; big.alt = alt || ''; box.classList.add('open'); box.scrollTop = 0; document.body.style.overflow = 'hidden'; }
+  function close(){ box.classList.remove('open'); big.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-zoom],[data-zoom-src]');
+    if(t){ e.preventDefault(); open(t.getAttribute('data-zoom-src') || t.currentSrc || t.src, t.alt || (t.querySelector('img') || {}).alt); return; }
+    if(box.classList.contains('open')) close();
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+})();
+</script>
+</body>
+</html>
